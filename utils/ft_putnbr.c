@@ -1,0 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmaidel- <mmaidel-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/09 12:24:23 by mmaidel-          #+#    #+#             */
+/*   Updated: 2022/09/09 18:01:37 by mmaidel-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+int	ft_putnbr(long int n)
+{
+	int	i;
+	int	count_size;	
+
+	i = 1;
+	count_size = 0;
+	if (n == -2147483648)
+		return (ft_printf("-2147483648"));
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n = n * -1;
+		count_size = 1;
+	}
+	while (i <= n / 10)
+		i = i * 10;
+	while (i >= 1)
+	{
+		ft_putchar_int(n / i);
+		n = n - (n / i) * i;
+		i = i / 10;
+		count_size++;
+	}
+	return (count_size);
+}
