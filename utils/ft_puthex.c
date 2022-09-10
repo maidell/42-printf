@@ -6,44 +6,59 @@
 /*   By: mmaidel- <mmaidel-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 21:35:01 by mmaidel-          #+#    #+#             */
-/*   Updated: 2022/09/09 21:35:11 by mmaidel-         ###   ########.fr       */
+/*   Updated: 2022/09/10 02:35:15 by mmaidel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_putchar_int(int i)
+static int	find_size(unsigned long long int number)
 {
-	char	c;
+	int	lenght;
 
-	c = '0';
-	c = c + i;
-	write(1, &c, 1);
+	lenght = 1;
+	while (number >= 16)
+	{
+		lenght++;
+		number = number / 16;
+	}
+	return (lenght);
 }
 
-int	ft_putnbr(long int n)
+static char	to_ascii(unsigned long int src, char flag)
 {
-	int	i;
-	int	count_size;	
+	if (src <= 9)
+		return (src + 48);
+	else if (flag == 'x' || flag == 'p')
+		return (src + 87);
+	else if (flag == 'X')
+		return (src + 55);
+	return ('\0');
+}
 
-	i = 1;
-	count_size = 0;
-	if (n == -2147483648)
-		return (ft_printf("-2147483648"));
-	if (n < 0)
+int	ft_puthex(unsigned int number, char flag)
+{
+	char				*str;
+	int					size;
+	unsigned long int	hex;
+
+	size = find_size(number);
+	if (flag == 'p')
 	{
-		ft_putchar('-');
-		n = n * -1;
-		count_size = 1;
+		if (!number)
+			return (ft_printf("(nil)") - 2);
+		ft_printf("0x");
 	}
-	while (i <= n / 10)
-		i = i * 10;
-	while (i >= 1)
+	if (number == 0)
+		return (ft_printf("0"));
+	str = calloc(sizeof(char), (size + 1));
+	while (number != 0)
 	{
-		ft_putchar_int(n / i);
-		n = n - (n / i) * i;
-		i = i / 10;
-		count_size++;
+		hex = (number % 16);
+		str[--size] = to_ascii(hex, flag);
+		number = number / 16;
 	}
-	return (count_size);
+	size = ft_printf("%s", str);
+	free (str);
+	return (size);
 }
