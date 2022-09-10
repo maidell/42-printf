@@ -6,7 +6,7 @@
 /*   By: mmaidel- <mmaidel-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 00:18:26 by mmaidel-          #+#    #+#             */
-/*   Updated: 2022/09/10 00:30:25 by mmaidel-         ###   ########.fr       */
+/*   Updated: 2022/09/10 07:03:09 by mmaidel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	main(void)
 {
-	ft_printf("um %d dois", -1l );
+	ft_printf("um isso contem %d%% de %i dois", 10, 100 );
 }

@@ -6,7 +6,7 @@
 /*   By: mmaidel- <mmaidel-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 01:29:19 by mmaidel-          #+#    #+#             */
-/*   Updated: 2022/09/10 00:47:09 by mmaidel-         ###   ########.fr       */
+/*   Updated: 2022/09/10 06:56:28 by mmaidel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ int	format(const char *str, va_list type)
 	i = 0;
 	if (str[i] == 'c')
 		return (ft_putchar(va_arg(type, int)));
-	if (str[i] == 's')
+	else if (str[i] == 's')
 		return (ft_putstr(va_arg(type, char *)));
-	if (str[i] == 'p')
+	else if (str[i] == 'p')
 		i++;
-	if ((str[i] == 'd') || (str[i] == 'i'))
+	else if ((str[i] == 'd') || (str[i] == 'i'))
 		return (ft_putnbr(va_arg(type, int)));
-	if (str[i] == 'u')
+	else if (str[i] == 'u')
 		return (ft_putnbr(va_arg(type, unsigned int)));
-	if (str[i] == 'x')
+	// else if (str[i] == 'x')
 		
-	if (str[i] == 'X')
+	// else if (str[i] == 'X')
 		
-	if (str[i] == '%')
+	else if (str[i] == '%')
 		return (ft_putchar('%'));
 
 	return (0);

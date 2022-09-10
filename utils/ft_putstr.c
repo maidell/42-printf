@@ -6,18 +6,26 @@
 /*   By: mmaidel- <mmaidel-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:24:06 by mmaidel-          #+#    #+#             */
-/*   Updated: 2022/09/09 20:52:49 by mmaidel-         ###   ########.fr       */
+/*   Updated: 2022/09/10 06:45:42 by mmaidel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *str)
-{
-	while (*str != '\0')
+int	ft_putstr(char *s)
+{	
+	int	count_size;
+
+	count_size = 0;
+	if (!s)
 	{
-		write(1, str, 1);
-		str++;
+		ft_printf("(null)");
+		return (6);
 	}
-	return (3);
+	while (s[count_size] != '\0')
+	{
+		write (1, &s[count_size], 1);
+		count_size++;
+	}
+	return (count_size);
 }
