@@ -6,7 +6,7 @@
 /*   By: mmaidel- <mmaidel-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 01:29:19 by mmaidel-          #+#    #+#             */
-/*   Updated: 2022/09/09 21:19:29 by mmaidel-         ###   ########.fr       */
+/*   Updated: 2022/09/10 00:47:09 by mmaidel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,4 @@ int	ft_printf(const char *printer, ...)
 		printer++;
 	}
 	return (i);
-}
-
-int	main(void)
-{
-	ft_printf("um %d dois", -1l );
 }

@@ -1,18 +1,12 @@
 NAME = libftprintf.a
 
-HEADER_DIR = ./header
+INCLUDES = ./header
 
-INCLUDES = -I${HEADER_DIR}
-
-SOURCE_DIR = ./srcs 
-
-UTILS_DIR = ./utils
-
-SOURCES = $(SOURCE_DIR)/ft_printf.c
-
-UTILS += $(UTILS_DIR)/ft_putchar.c
-UTILS += $(UTILS_DIR)/ft_putstr.c
-UTILS += $(UTILS_DIR)/ft_putnbr.c
+SOURCES = ./srcs/ft_printf.c \
+			./utils/ft_putchar.c \
+			./utils/ft_putstr.c \
+			./utils/ft_putnbr.c \
+			./utils/ft_puthex.c
 
 RM = @rm -f
 
@@ -22,7 +16,7 @@ CC = @clang
 
 CFLAGS = -Wall -Wextra -Werror
 
-OBJECTS = ${SOURCES:.c=.o} ${UTILS:.c=.o}
+OBJECTS = ${SOURCES:.c=.o} 
 
 # Mandatory
 all: ${NAME}
@@ -30,19 +24,17 @@ all: ${NAME}
 # Mandatory
 $(NAME): ${OBJECTS} 
 	${ARCHIVE} ${NAME} ${OBJECTS}
+# ar -rc libftprintf.a 
 	
-.c.o:
-	${CC} ${CFLAGS} ${INCLUDES} -c $< -o ${<:.c=.o}
+%.o:%.c
+	${CC} $(CFLAGS) -I${INCLUDES} -c $< -o ${<:.c=.o}
 
 # Mandatory
 clean:
-	make clean
 	${RM}	${OBJECTS}
 	
-
 # Mandatory
 fclean: clean
-	make fclean
 	${RM} ${NAME}
 
 # Mandatory
