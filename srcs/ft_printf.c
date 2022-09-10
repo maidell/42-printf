@@ -6,7 +6,7 @@
 /*   By: mmaidel- <mmaidel-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 01:29:19 by mmaidel-          #+#    #+#             */
-/*   Updated: 2022/09/10 13:08:19 by mmaidel-         ###   ########.fr       */
+/*   Updated: 2022/09/10 18:54:06 by mmaidel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ int	format(const char *str, va_list type)
 		return (ft_puthex(va_arg(type, unsigned int), 'X'));
 	else if (str[i] == '%')
 		return (ft_putchar('%'));
-
 	return (0);
-
 }
 
 int	ft_printf(const char *printer, ...)
