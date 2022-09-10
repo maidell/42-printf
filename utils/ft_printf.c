@@ -6,51 +6,63 @@
 /*   By: mmaidel- <mmaidel-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 01:29:19 by mmaidel-          #+#    #+#             */
-/*   Updated: 2022/09/09 18:33:34 by mmaidel-         ###   ########.fr       */
+/*   Updated: 2022/09/09 21:19:29 by mmaidel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	format(const char *str)
+int	format(const char *str, va_list type)
 {
-	char	text;
-	int		i;
+	int	i;
 
 	i = 0;
-	while (str[i] != 0)
+	if (str[i] == 'c')
+		return (ft_putchar(va_arg(type, int)));
+	if (str[i] == 's')
+		return (ft_putstr(va_arg(type, char *)));
+	if (str[i] == 'p')
+		i++;
+	if ((str[i] == 'd') || (str[i] == 'i'))
+		return (ft_putnbr(va_arg(type, int)));
+	if (str[i] == 'u')
+		return (ft_putnbr(va_arg(type, unsigned int)));
+	if (str[i] == 'x')
+		
+	if (str[i] == 'X')
+		
+	if (str[i] == '%')
+		return (ft_putchar('%'));
+
+	return (0);
+
+}
+
+int	ft_printf(const char *printer, ...)
+{
+	int		i;
+	va_list	ap;
+
+	i = 0;
+	va_start(ap, printer);
+	while (*printer != 0)
 	{
-		if ((str[i] == '%') && (str[i + 1] == 'c'))
-			i++;
-		else if ((str[i] == '%') && (str[i + 1] == 's'))
-			i++;
-		else if ((str[i] == '%') && (str[i + 1] == 'p'))
-			i++;
-		else if ((str[i] == '%') && (str[i + 1] == 'd'))
-			i++;
-		else if ((str[i] == '%') && (str[i + 1] == 'i'))
-			i++;
-		else if ((str[i] == '%') && (str[i + 1] == 'u'))
-			i++;
-		else if ((str[i] == '%') && (str[i + 1] == 'x'))
-			i++;
-		else if ((str[i] == '%') && (str[i + 1] == 'X'))
-			i++;
-		else if ((str[i] == '%') && (str[i + 1] == '%'))
+		if (*printer == '%')
 		{
-			ft_putchar('%');
-			i++;
+			printer++;
+			i += format(printer, ap);
 		}
 		else
 		{
-			text = str[i];
-			ft_putchar(text);
+			ft_putchar(*printer);
+			i++;
 		}
-		i++;
+		printer++;
 	}
+	return (i);
 }
 
 int	main(void)
 {
-	format("um %% dois");
+	ft_printf("um %d dois", -1l );
 }

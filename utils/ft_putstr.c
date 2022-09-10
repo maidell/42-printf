@@ -6,17 +6,18 @@
 /*   By: mmaidel- <mmaidel-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:24:06 by mmaidel-          #+#    #+#             */
-/*   Updated: 2022/09/09 18:01:41 by mmaidel-         ###   ########.fr       */
+/*   Updated: 2022/09/09 20:52:49 by mmaidel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
 	while (*str != '\0')
 	{
 		write(1, str, 1);
 		str++;
 	}
+	return (3);
 }

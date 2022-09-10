@@ -6,11 +6,20 @@
 /*   By: mmaidel- <mmaidel-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:24:23 by mmaidel-          #+#    #+#             */
-/*   Updated: 2022/09/09 18:01:37 by mmaidel-         ###   ########.fr       */
+/*   Updated: 2022/09/09 21:11:25 by mmaidel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static void	ft_putchar_int(int i)
+{
+	char	c;
+
+	c = '0';
+	c = c + i;
+	write(1, &c, 1);
+}
 
 int	ft_putnbr(long int n)
 {

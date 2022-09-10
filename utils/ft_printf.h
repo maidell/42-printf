@@ -6,7 +6,7 @@
 /*   By: mmaidel- <mmaidel-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 01:29:19 by mmaidel-          #+#    #+#             */
-/*   Updated: 2022/09/09 17:58:14 by mmaidel-         ###   ########.fr       */
+/*   Updated: 2022/09/09 21:32:45 by mmaidel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,41 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-void	ft_putchar(char c);
+int	ft_putchar(char c);
 int	ft_putnbr(long int n);
-void	ft_putstr(char *str);
-int	format(const char *str);
-
-
+int	ft_putstr(char *str);
+int	format(const char *str, va_list type);
+int	ft_printf(const char *printer, ...);
+int ft_puthex(unsigned int number, char flag);
 
 
 
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
