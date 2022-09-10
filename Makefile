@@ -1,6 +1,6 @@
 NAME = libftprintf.a
 
-INCLUDES = ./header
+INCLUDES = ./includes
 
 SOURCES = ./srcs/ft_printf.c \
 			./utils/ft_putchar.c \

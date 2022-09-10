@@ -6,7 +6,7 @@
 /*   By: mmaidel- <mmaidel-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 01:29:19 by mmaidel-          #+#    #+#             */
-/*   Updated: 2022/09/10 02:34:19 by mmaidel-         ###   ########.fr       */
+/*   Updated: 2022/09/10 13:08:19 by mmaidel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,16 @@ int	format(const char *str, va_list type)
 int	ft_printf(const char *printer, ...)
 {
 	int		i;
-	va_list	ap;
+	va_list	args;
 
 	i = 0;
-	va_start(ap, printer);
+	va_start(args, printer);
 	while (*printer != 0)
 	{
 		if (*printer == '%')
 		{
 			printer++;
-			i += format(printer, ap);
+			i += format(printer, args);
 		}
 		else
 		{

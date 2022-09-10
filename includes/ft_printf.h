@@ -6,7 +6,7 @@
 /*   By: mmaidel- <mmaidel-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 01:29:19 by mmaidel-          #+#    #+#             */
-/*   Updated: 2022/09/10 02:32:43 by mmaidel-         ###   ########.fr       */
+/*   Updated: 2022/09/10 13:23:15 by mmaidel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,36 +23,6 @@ int	ft_putnbr(long int n);
 int	ft_putstr(char *str);
 int	format(const char *str, va_list type);
 int	ft_printf(const char *printer, ...);
-int ft_puthex(unsigned int number, char flag);
-
-
+int	ft_puthex(unsigned long long number, char flag);
 
 #endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

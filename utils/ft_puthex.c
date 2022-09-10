@@ -1,14 +1,14 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mmaidel- <mmaidel-@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 21:35:01 by mmaidel-          #+#    #+#             */
-/*   Updated: 2022/09/10 02:35:15 by mmaidel-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// /* ************************************************************************** */
+// /*                                                                            */
+// /*                                                        :::      ::::::::   */
+// /*   ft_puthex.c                                        :+:      :+:    :+:   */
+// /*                                                    +:+ +:+         +:+     */
+// /*   By: mmaidel- <mmaidel-@student.42.fr>          +#+  +:+       +#+        */
+// /*                                                +#+#+#+#+#+   +#+           */
+// /*   Created: 2022/09/09 21:35:01 by mmaidel-          #+#    #+#             */
+// /*   Updated: 2022/09/10 09:44:03 by mmaidel-         ###   ########.fr       */
+// /*                                                                            */
+// /* ************************************************************************** */
 
 #include "ft_printf.h"
 
@@ -25,7 +25,7 @@ static int	find_size(unsigned long long int number)
 	return (lenght);
 }
 
-static char	to_ascii(unsigned long int src, char flag)
+static char	ft_to_ascii(unsigned long int src, char flag)
 {
 	if (src <= 9)
 		return (src + 48);
@@ -36,7 +36,7 @@ static char	to_ascii(unsigned long int src, char flag)
 	return ('\0');
 }
 
-int	ft_puthex(unsigned int number, char flag)
+int	ft_puthex(unsigned long long number, char flag)
 {
 	char				*str;
 	int					size;
@@ -55,7 +55,8 @@ int	ft_puthex(unsigned int number, char flag)
 	while (number != 0)
 	{
 		hex = (number % 16);
-		str[--size] = to_ascii(hex, flag);
+		str[--size] = ft_to_ascii
+	(hex, flag);
 		number = number / 16;
 	}
 	size = ft_printf("%s", str);
